@@ -74,7 +74,11 @@ const AddNfts = ({ save }) => {
               placeholder="Wine Image"
               className={"mb-3"}
               onChange={async (e) => {
-                const imageUrl = await uploadToIpfs(e);
+                console.log(e.target.files)
+                const image_file = e.target.files
+                console.log(image_file)
+                
+                const imageUrl = await uploadToIpfs(image_file);
                 if (!imageUrl) {
                   alert("Failed to upload image");
                   return;
