@@ -79,18 +79,27 @@ export const createWineNft = async (
 // function to upload an image to Web3.storage
 export const uploadToIpfs = async (e) => {
   const file = e.target.files;
+
+  console.log(`Image: ${file}`)
+
   if (!file) return;
   try {
-    const image_cid = await storeFiles(file);
-    const client = makeStorageClient()
-    const image_f = await client.get(image_cid);
+    console.log(`getting cid...`)
 
+    const image_cid = await storeFiles(file);
+    console.log(`Image cid: ${image_cid}`)
+    
+
+    const image_f = await client.get(image_cid);
+    console.log(`Image file: ${image_f}`)
+  
     const img = await image_f.files();
     for (const file of img) {
       // console.log(file);
       const image_url = `https://${file.cid}.ipfs.w3s.link/`;
+      console.log(`Image url: ${image_url}`)
+      
       return image_url;
-      // console.log(f_url)
     }
   } catch (error) {
     console.log("Error uploading file: ", error);
