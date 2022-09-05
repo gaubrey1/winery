@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  font-family: "Montserrat";
+}
+body {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  position: relative;
+}
+button {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  min-width: 100px;
+}
+.marketplace {
+  padding-top: 100px;
+}
+
+/* Nav */
+.nav {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.logo_img {
+  width: 50px;
+}
+.logo_name {
+  color: #531c1c;
+  margin-left: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.nav button {
+  border-radius: 32px;
+  background-color: #e0e0e0;
+  color: #531c1c;
+}
+
+
+
+/* Cover JS */
+.cover_page {
+  position: absolute;
+  background-image: url("./assets/wine_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  height: 100%;
+  width: 100vw;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.cover_header {
+  box-sizing: border-box;
+  box-shadow: 2px 0px 5px #4d4c4c44;
+  background-color: #e0e0e0;
+  color: #252525;
+  text-align: left;
+  width: 550px;
+  height: 100%;
+  padding: 0px 2% 0px 4%;
+}
+.cover_page h1 {
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.cover_page button {
+  margin-top: 50px;
+  border-radius: 32px;
+  background-color: #531c1c;
+}
+
+/* CARD JS */
+.wine_container {
+  width: 300px;
+  height: 550px;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #d3d1d1d3;
+  position: relative;
+}
+
+.wine_image {
+  width: 100%;
+  height: 68%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.wine_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sold_tag {
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  text-align: center;
+  padding: 5px 7px;
+  width: 70px;
+  background-color: #531c1c;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+}
+.wine_details {
+  width: 100%;
+  text-align: center;
+}
+.wine_details h2 {
+  margin: 18px 0px 10px 0px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.wine_details p {
+  margin: 3px 0px;
+}
+
+.wine_btn {
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+}
+.wine_btn button {
+  background-color: #531c1c;
+  border-radius: 32px;
+  font-size: 0.9rem;
+}
+
+
+/* ADD JS */
+.add_wine_btn {
+  border-radius: 32px;
+  background-color: #531c1c;
+}
+
+.modal_footer {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 30px;
+}
+.create_btn {
+  margin-left: 30px;
+  border-radius: 32px;
+  background-color: #531c1c;
+  border: thin solid #531c1c;
+}
+.create_btn:disabled {
+  background-color: #531c1c7a;
+  border: thin solid #531c1c31;
+}
+.close_btn {
+  color: #531c1c;
+  border-radius: 32px;
+  background: none;
+  border: thin solid #531c1c;
+}
