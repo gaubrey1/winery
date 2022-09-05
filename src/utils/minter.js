@@ -91,14 +91,17 @@ export const uploadToIpfs = async (e) => {
     
 
     const image_f = await client.get(image_cid);
-    console.log(`Image file: ${image_f}`)
+    console.log(`Image file: ${image_f.files()}`)
   
     const img = await image_f.files();
+    console.log(img)
+
     for (const file of img) {
-      // console.log(file);
+      console.log(file)
+
       const image_url = `https://${file.cid}.ipfs.w3s.link/`;
       console.log(`Image url: ${image_url}`)
-      
+
       return image_url;
     }
   } catch (error) {
