@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/winery/static/css/main.1bd99563.chunk.css",
-    "main.js": "/winery/static/js/main.0e4f5be3.chunk.js",
-    "main.js.map": "/winery/static/js/main.0e4f5be3.chunk.js.map",
+    "main.js": "/winery/static/js/main.f2901241.chunk.js",
+    "main.js.map": "/winery/static/js/main.f2901241.chunk.js.map",
     "runtime-main.js": "/winery/static/js/runtime-main.018aba7c.js",
     "runtime-main.js.map": "/winery/static/js/runtime-main.018aba7c.js.map",
     "static/css/2.f0677135.chunk.css": "/winery/static/css/2.f0677135.chunk.css",
-    "static/js/2.b2fe3963.chunk.js": "/winery/static/js/2.b2fe3963.chunk.js",
-    "static/js/2.b2fe3963.chunk.js.map": "/winery/static/js/2.b2fe3963.chunk.js.map",
+    "static/js/2.3dfe12d6.chunk.js": "/winery/static/js/2.3dfe12d6.chunk.js",
+    "static/js/2.3dfe12d6.chunk.js.map": "/winery/static/js/2.3dfe12d6.chunk.js.map",
     "static/js/3.f5ecf767.chunk.js": "/winery/static/js/3.f5ecf767.chunk.js",
     "static/js/3.f5ecf767.chunk.js.map": "/winery/static/js/3.f5ecf767.chunk.js.map",
     "index.html": "/winery/index.html",
     "static/css/2.f0677135.chunk.css.map": "/winery/static/css/2.f0677135.chunk.css.map",
     "static/css/main.1bd99563.chunk.css.map": "/winery/static/css/main.1bd99563.chunk.css.map",
-    "static/js/2.b2fe3963.chunk.js.LICENSE.txt": "/winery/static/js/2.b2fe3963.chunk.js.LICENSE.txt",
+    "static/js/2.3dfe12d6.chunk.js.LICENSE.txt": "/winery/static/js/2.3dfe12d6.chunk.js.LICENSE.txt",
     "static/media/bootstrap-icons.css": "/winery/static/media/bootstrap-icons.ea98e12d.woff2",
     "static/media/logo.fce7f206.png": "/winery/static/media/logo.fce7f206.png",
     "static/media/App.css": "/winery/static/media/wine_bg.42db4f22.jpg"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.018aba7c.js",
     "static/css/2.f0677135.chunk.css",
-    "static/js/2.b2fe3963.chunk.js",
+    "static/js/2.3dfe12d6.chunk.js",
     "static/css/main.1bd99563.chunk.css",
-    "static/js/main.0e4f5be3.chunk.js"
+    "static/js/main.f2901241.chunk.js"
   ]
 }
