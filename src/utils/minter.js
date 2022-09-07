@@ -9,6 +9,19 @@ const makeStorageClient = () => {
   return new Web3Storage({ token: getAccessToken() })
 }
 
+const formattedName = (name) => {
+  let file_name;
+
+  const trim_name = name.trim() // removes extra whitespaces
+
+  if(trim_name.includes(" ")) {
+    file_name = trim_name.replaceAll(" ", "%20")
+    
+    return file_name
+  }
+  else return trim_name
+}
+
 const makeFileObjects = (file) => {
   const blob = new Blob([JSON.stringify(file)], { type: 'application/json' })
   const files = [
@@ -23,12 +36,7 @@ const storeFiles = async (files) => {
   const cid = await client.put(files)
   return cid
 }
-const fileUrl = async (files) => {
-  for (const file of files) {
-    const file_url = `https://${file.cid}.ipfs.w3s.link/` // get file url
-    return file_url
-  }
-}
+
 
 // mint an NFT
 export const createWineNft = async (
@@ -39,6 +47,10 @@ export const createWineNft = async (
   await performActions(async (kit) => {
     if (!name || !description || !ipfsImage || !ipfsImage) return;
     const { defaultAccount } = kit;
+
+    // trim any extra whitespaces from the name and 
+    // replace the whitespace between the name with %20
+    const file_name = formattedName(name);
 
     // convert NFT metadata to JSON format
     const data = {
@@ -52,16 +64,9 @@ export const createWineNft = async (
     try {
       // save NFT metadata to IPFS
       const files = makeFileObjects(data);
-      // console.log(files)
-
       const file_cid = await storeFiles(files)
-      // console.log(file_cid)
 
-      // IPFS url for uploaded metadata
-      // let file_url;
-      const cid = await client.get(file_cid);
-      const cid_file = await cid.files();
-      const url = await fileUrl(cid_file);
+      const url = `https://${file_cid}.ipfs.w3s.link/${file_name}.json`
       const _price = ethers.utils.parseUnits(String(price), "ether");
 
       // upload the NFT, mint the NFT and save the IPFS url to the blockchain
@@ -80,28 +85,13 @@ export const createWineNft = async (
 export const uploadToIpfs = async (file) => {
   if (!file) return;
   try {
-    console.log(`getting cid...`)
-
-    const image_cid = await storeFiles(file);
-    console.log(`Image cid: ${image_cid}`)
+    const file_name = file[0].name
+    const image_name = formattedName(file_name)
     
-
-    const image_f = await client.get(image_cid);
-    console.log(`Image file: ${image_f}`)
-
-    console.log(`https://${image_cid}.ipfs.w3s.link/`)
-  
-    const img = await image_f.files();
-    console.log(img)
-
-    for (const file of img) {
-      console.log(file)
-
-      const image_url = `https://${file.cid}.ipfs.w3s.link/`;
-      console.log(`Image url: ${image_url}`)
-
-      return image_url;
-    }
+    const image_cid = await storeFiles(file);
+    const image_url = `https://${image_cid}.ipfs.w3s.link/${image_name}`
+ 
+    return image_url;
   } catch (error) {
     console.log("Error uploading file: ", error);
   }
@@ -162,16 +152,6 @@ export const fetchNftMeta = async (ipfsUrl) => {
 export const fetchNftOwner = async (minterContract, index) => {
   try {
     return await minterContract.methods.ownerOf(index).call();
-  } catch (e) {
-    console.log({ e });
-  }
-};
-
-// get the address that deployed the NFT contract
-export const fetchNftContractOwner = async (minterContract) => {
-  try {
-    let owner = await minterContract.methods.owner().call();
-    return owner;
   } catch (e) {
     console.log({ e });
   }

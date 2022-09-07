@@ -48,7 +48,7 @@ const AddNfts = ({ save }) => {
               className={"mb-3"}
               style={{ height: "45px", fontSize: "0.9rem" }}
               onChange={(e) => {
-                setName(e.target.value);
+                setName(e.target.value.trim());
               }}
             />
             <Form.Control
@@ -57,7 +57,7 @@ const AddNfts = ({ save }) => {
               className={"mb-3"}
               style={{ height: "80px", fontSize: "0.9rem" }}
               onChange={(e) => {
-                setDescription(e.target.value);
+                setDescription(e.target.value.trim());
               }}
             />
             <Form.Control

@@ -23,7 +23,7 @@ const App = function AppWrapper() {
       <Notification />
       <Nav className="nav justify-content-between px-5 py-3">
         <Nav.Item>
-          <img className="logo_img" src={logo} alt="Logo Image"/>
+          <img className="logo_img" src={logo} alt="Logo"/>
           <span className="logo_name">Winery</span>
         </Nav.Item>
         {address ? (

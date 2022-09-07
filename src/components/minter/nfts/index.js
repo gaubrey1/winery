@@ -10,8 +10,7 @@ import {
   getWine,
   buyWine,
   createWineNft,
-  giftWineNft,
-  fetchNftContractOwner,
+  giftWineNft
 } from "../../../utils/minter";
 import { Row } from "react-bootstrap";
 
@@ -19,7 +18,6 @@ const NftList = ({ minterContract, name }) => {
   const { performActions, address } = useContractKit();
   const [nfts, setNfts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [nftOwner, setNftOwner] = useState(null);
 
   const getNFTAssets = useCallback(async () => {
     try {
@@ -68,12 +66,6 @@ const NftList = ({ minterContract, name }) => {
     }
   };
 
-  const fetchContractOwner = useCallback(async (minterContract) => {
-    // get the address that deployed the NFT contract
-    const _address = await fetchNftContractOwner(minterContract);
-    setNftOwner(_address);
-  }, []);
-
   // Gift NFT to a particular user using their wallet address
   const giftNft = async(data) => {
     try {
@@ -94,12 +86,11 @@ const NftList = ({ minterContract, name }) => {
     try {
       if (address && minterContract) {
         getNFTAssets();
-        fetchContractOwner(minterContract);
       }
     } catch (error) {
       console.log({ error });
     }
-  }, [minterContract, address, getNFTAssets, fetchContractOwner]);
+  }, [minterContract, address, getNFTAssets]);
 
   if (address) {
     return (
