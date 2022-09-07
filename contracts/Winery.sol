@@ -128,7 +128,7 @@ contract Winery is ERC721, ERC721Enumerable, ERC721URIStorage {
             msg.sender != _receiver,
             "Sorry, but you can't gift yourself your wine"
         );
-
+        wines[_wineId].wineSold = true;
         wines[_wineId].owner = payable(_receiver);
         _safeTransfer(msg.sender, _receiver, _wineId, "");
     }
