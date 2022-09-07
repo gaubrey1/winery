@@ -2,7 +2,7 @@ import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js"
 import { ethers } from "ethers";
 
 const getAccessToken  = () => {
-  return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDAyZDE2OWM0Y0VhMDREQTNGMjQ4RDg5MDUwNjkxNzk2NWJkZjUxN2MiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjI0MTU5OTM5NjQsIm5hbWUiOiJ3aW5lcnkifQ.dV9Ojvo_yX4QS9lYKcng-B1Vfu1vwmKIXyad_xcTNH8"
+  return process.env.REACT_APP_API_TOKEN;
 }
 
 const makeStorageClient = () => {
