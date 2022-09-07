@@ -3,7 +3,7 @@
 ```
 ```
 ## About The Project
-Winery is an NFT marketplace for minting, buying and selling wines(vintage wine as well). It is a marketplace for users to showcase their love of wine as well as exchange minted wine NFTs. Users are able to
+Winery is an NFT marketplace for minting, buying and selling wines(vintage wine as well). It is a marketplace for users who love exquisite wine as well as exchange minted wine NFTs. Users are able to
 1. Mint a wine NFT
 2. Buy minted wine NFT
 3. Gift minted wine NFT to other users using their wallet address
