@@ -1,6 +1,6 @@
 {
   "homepage": "https://gaubrey1.github.io/winery",
-  "name": "react-minter-dapp",
+  "name": "winery-dapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
