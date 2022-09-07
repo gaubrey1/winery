@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/winery/static/css/main.1bd99563.chunk.css",
-    "main.js": "/winery/static/js/main.07f649ab.chunk.js",
-    "main.js.map": "/winery/static/js/main.07f649ab.chunk.js.map",
+    "main.js": "/winery/static/js/main.b0ec9fec.chunk.js",
+    "main.js.map": "/winery/static/js/main.b0ec9fec.chunk.js.map",
     "runtime-main.js": "/winery/static/js/runtime-main.018aba7c.js",
     "runtime-main.js.map": "/winery/static/js/runtime-main.018aba7c.js.map",
     "static/css/2.f0677135.chunk.css": "/winery/static/css/2.f0677135.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.f0677135.chunk.css",
     "static/js/2.3dfe12d6.chunk.js",
     "static/css/main.1bd99563.chunk.css",
-    "static/js/main.07f649ab.chunk.js"
+    "static/js/main.b0ec9fec.chunk.js"
   ]
 }
