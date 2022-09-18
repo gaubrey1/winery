@@ -34,6 +34,11 @@ contract Winery is ERC721, ERC721Enumerable, ERC721URIStorage, IERC721Receiver {
 
     mapping(uint256 => Wine) internal wines;
 
+    modifier onlyOwner(uint _index){
+        require(msg.sender == wines[_index].owner, "Only the owner can access this function");
+        _;
+    }
+
 /// @notice Takes in two parameters and uses them to mint an image uploaded as NFT
 /// @dev Mint a wine image as an NFT
 /// @param _uri, the url of the image
@@ -112,6 +117,27 @@ contract Winery is ERC721, ERC721Enumerable, ERC721URIStorage, IERC721Receiver {
         wines[_index].wineSold = true;
     }
 
+    function resellWine(uint _wineId, uint _price) onlyOwner{
+        wines[_wineId].winesold != true;
+        wines[_wineId].winePrice = _price;
+    }
+
+/// @notice Explain to an end user what this does
+/// @dev Takes in the param wineId to find the wine with stored with that particular Id
+///     uses the safeTransferFrom function to transfer the NFT from the owner to the receiver
+///     the receiver become the new owner ofn the NFT
+/// @param _wineId, id of the wine to be gifted
+/// @param _receiver, the address of the receiver of the wine gift
+    function giftWine(uint256 _wineId, address _receiver) external onlyOwner {
+        require(_wineId == wines[_wineId].wineId, "Wine with the specific token doesn't exist");
+        require(msg.sender != _receiver, "Sorry, but you can't gift yourself your wine");
+
+        if(_receiver != address(0)) {
+            wines[_wineId].owner = payable(_receiver);
+            safeTransferFrom(msg.sender, _receiver, _wineId);
+        }
+    }
+
 
 /// @notice Get wine, to get a particular wine from the wines stored using its index
 /// @dev Uses the index as a param to get the wine stored in the wines mapping with that particular index as key
@@ -133,24 +159,6 @@ contract Winery is ERC721, ERC721Enumerable, ERC721URIStorage, IERC721Receiver {
             wines[_index].winePrice,
             wines[_index].wineSold
         );
-    }
-
-
-/// @notice Explain to an end user what this does
-/// @dev Takes in the param wineId to find the wine with stored with that particular Id
-///     uses the safeTransferFrom function to transfer the NFT from the owner to the receiver
-///     the receiver become the new owner ofn the NFT
-/// @param _wineId, id of the wine to be gifted
-/// @param _receiver, the address of the receiver of the wine gift
-    function giftWine(uint256 _wineId, address _receiver) external {
-        require(_wineId == wines[_wineId].wineId, "Wine with the specific token doesn't exist");
-        require(msg.sender == wines[_wineId].owner, "Sorry, only wine owner can gift wine");
-        require(msg.sender != _receiver, "Sorry, but you can't gift yourself your wine");
-
-        if(_receiver != address(0)) {
-            wines[_wineId].owner = payable(_receiver);
-            safeTransferFrom(msg.sender, _receiver, _wineId);
-        }
     }
 
 /// @notice Gets the total number of NFT stored
